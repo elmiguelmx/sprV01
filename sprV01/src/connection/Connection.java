@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Porpuse:
+ *Clase conexión la cúal permitira la conexión a la Base de datos.
  */
 package connection;
 
@@ -9,7 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
+ * @since 18/02/2019
  * @author Miguel
  */
 public class Connection {
@@ -31,7 +30,11 @@ public class Connection {
         } catch (ClassNotFoundException | SQLException e) {}
     }
 
+    /**
+     * Metodo que recupera el objeto conexión
+     * @return 
+     */
     public Connection getConexion() {
-        return (Connection) conexion;
+        return  (Connection) conexion;
     }
 }
