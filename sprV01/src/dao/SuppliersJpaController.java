@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package dao;
 
 import Controller.exceptions.NonexistentEntityException;
 import entities.Suppliers;
@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -22,8 +23,8 @@ import javax.persistence.criteria.Root;
  */
 public class SuppliersJpaController implements Serializable {
 
-    public SuppliersJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public SuppliersJpaController() {
+         this.emf = Persistence.createEntityManagerFactory("sprV01PU");
     }
     private EntityManagerFactory emf = null;
 

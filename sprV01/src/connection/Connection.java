@@ -24,15 +24,13 @@ public class Connection {
         try {
             Class.forName(DRIVER);
             conexion = DriverManager.getConnection(URL + BD, USER, PASSWORD);
-            if (conexion != null) {
-                System.out.println("successful connection");
-            }
         } catch (ClassNotFoundException | SQLException e) {}
     }
 
     /**
-     * Metodo que recupera el objeto conexión
-     * @return 
+     * 
+     * Method that returns a connection object
+     * @return Connection
      */
     public Connection getConexion() {
         return  (Connection) conexion;
