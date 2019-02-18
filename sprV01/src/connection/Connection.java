@@ -14,22 +14,24 @@ import java.sql.SQLException;
  */
 public class Connection {
 
+    private final String DRIVER = "com.mysql.jdbc.Driver";
     private final String URL = "jdbc:mysql://localhost:3306/";
     private final String BD = "dbtest";
     private final String USER = "miguel";
     private final String PASSWORD = "admin";
-    protected java.sql.Connection conexion = null;
+    public java.sql.Connection conexion = null;
 
-    @SuppressWarnings("finally")
-    public java.sql.Connection getConexion() throws SQLException {
+    public Connection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(DRIVER);
             conexion = DriverManager.getConnection(URL + BD, USER, PASSWORD);
             if (conexion != null) {
-                System.out.println("hhhhh");
+                System.out.println("successful connection");
             }
-        } catch (ClassNotFoundException | SQLException e) {
-        }
-        return conexion;
+        } catch (ClassNotFoundException | SQLException e) {}
+    }
+
+    public Connection getConexion() {
+        return (Connection) conexion;
     }
 }
